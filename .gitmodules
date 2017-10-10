@@ -1,0 +1,3 @@
+[submodule "TiJavaLib"]
+	path = TiJavaLib
+	url = https://github.com/TihiyTi/TiJavaLib.git
