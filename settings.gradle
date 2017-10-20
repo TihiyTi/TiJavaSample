@@ -1,2 +1,8 @@
 rootProject.name = 'TiJavaSample'
-include 'SerialServiceSamples'
+include ':SerialServiceSamples'
+include ':SerialServiceSamples:SerialImplements'
+
+include ':TiSerialService'
+project(':TiSerialService').projectDir = new File(settingsDir, './TiJavaLib/TiSerialService')
+include ':TiUtils'
+project(':TiUtils').projectDir = new File(settingsDir, './TiJavaLib/TiUtils')
