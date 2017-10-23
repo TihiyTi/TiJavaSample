@@ -1,6 +1,7 @@
 package com.ti;
 
 import com.ti.command.AbstractCommand;
+import com.ti.command.DataCommand;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,7 +9,11 @@ import java.util.Map;
 
 public enum SampleCommandType implements CommandTypable {
     OK((byte)0x00, 8),
-    NO((byte)0x01, 8);
+    NO((byte)0x01, 8),
+    DATA((byte)0x02, 8){
+        @Override
+        public AbstractCommand getCommand(){return  new DataCommand<>(this);}
+    };
     public byte syncByte;
     public int commandSize;
 
@@ -17,6 +22,7 @@ public enum SampleCommandType implements CommandTypable {
         commandSize = size;
     }
 
+    //todo выпилить методы после удаления методов из библиотеки
     @Override @Deprecated
     public boolean check(byte head) {
         return false;
@@ -43,6 +49,6 @@ public enum SampleCommandType implements CommandTypable {
 
     @Override
     public boolean equalCommand(AbstractCommand command) {
-        return false;
+        return command.is() == this;
     }
 }

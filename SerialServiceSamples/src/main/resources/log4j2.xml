@@ -26,6 +26,9 @@
 
 
     <Loggers>
+        <Logger name="serialServiceLogger" level="trace">
+            <AppenderRef ref="Console"/>
+        </Logger>
         <!--<Logger name="com.ti.AnalogTester" level="trace">-->
             <!--<AppenderRef ref="Console"/>-->
         <!--</Logger>-->
