@@ -1,16 +1,15 @@
-package com.ti;
+package com.ti.comm.sawSerial;
 
 import com.ti.checkers.CommandSplittable;
 import com.ti.checkers.ProtocolCheckable;
 import com.ti.command.AbstractCommand;
-import com.ti.command.MechaCommand;
 import com.ti.protocol.AbstractProtocol;
 
 import java.nio.ByteBuffer;
 
-public class SawMechaProtocol  extends AbstractProtocol<AbstractCommand, AbstractCommand> {
+public class SawProtocol extends AbstractProtocol<AbstractCommand, AbstractCommand> {
 
-    public SawMechaProtocol(ProtocolCheckable protocolChecker, CommandSplittable commandSplitter){
+    public SawProtocol(ProtocolCheckable protocolChecker, CommandSplittable commandSplitter){
         super(protocolChecker, commandSplitter);
     }
 
@@ -21,6 +20,6 @@ public class SawMechaProtocol  extends AbstractProtocol<AbstractCommand, Abstrac
 
     @Override
     public AbstractCommand createByteToRequest(ByteBuffer buffer) {
-        return new MechaCommand().parseByteBuffer(buffer);
+        return new SawCommand().parseByteBuffer(buffer);
     }
 }

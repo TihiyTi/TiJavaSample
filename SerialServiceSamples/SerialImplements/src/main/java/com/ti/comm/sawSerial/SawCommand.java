@@ -1,8 +1,10 @@
-package com.ti.command;
+package com.ti.comm.sawSerial;
+
+import com.ti.command.AbstractCommand;
 
 import java.nio.ByteBuffer;
 
-public class MechaCommand extends AbstractCommand {
+public class SawCommand extends AbstractCommand {
     private int reo_1 = 0;
     private int ecg_1 = 0;
     private int currentControl_1 = 0;
@@ -12,10 +14,10 @@ public class MechaCommand extends AbstractCommand {
 
     // TODO: 23.10.2017 "коммандный байт" должен добавляться в abstractCommand  если
     // type не равен null
-    public MechaCommand(){
+    public SawCommand(){
     }
 
-    public MechaCommand(int reo_1, int ecg_1, int currentControl_1, int reo_2, int ecg_2, int currentControl_2) {
+    public SawCommand(int reo_1, int ecg_1, int currentControl_1, int reo_2, int ecg_2, int currentControl_2) {
         this.reo_1 = reo_1;
         this.ecg_1 = ecg_1;
         this.currentControl_1 = currentControl_1;
@@ -23,10 +25,10 @@ public class MechaCommand extends AbstractCommand {
         this.ecg_2 = ecg_2;
         this.currentControl_2 = currentControl_2;
     }
-//    public MechaCommand(COMMAND_TYPE commandType) {
+//    public SawCommand(COMMAND_TYPE commandType) {
 //        type = commandType;
 //    }
-//    public MechaCommand(COMMAND_TYPE commandType, int reo, int mio) {
+//    public SawCommand(COMMAND_TYPE commandType, int reo, int mio) {
 //        type = commandType;
 //        this.reo = reo;
 //        this.mio = mio;
@@ -65,6 +67,6 @@ public class MechaCommand extends AbstractCommand {
 
     @Override
     public void debugPrint() {
-        System.out.println("Not implemented for MechaCommand");
+        System.out.println("Not implemented for SawCommand");
     }
 }

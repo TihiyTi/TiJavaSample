@@ -1,6 +1,8 @@
 package com.ti;
 
 import com.ti.checkers.SawSynchroByteProtocolChecker;
+import com.ti.comm.sawSerial.SawController;
+import com.ti.comm.sawSerial.SawProtocol;
 import com.ti.command.AbstractCommand;
 
 public class Sample1 {
@@ -9,8 +11,8 @@ public class Sample1 {
         // Настройка Serial сервиса
         SerialService<AbstractCommand,AbstractCommand> service = new SerialService<>();
         SawSynchroByteProtocolChecker checker = new SawSynchroByteProtocolChecker(24);
-        SawMechaProtocol protocol =  new SawMechaProtocol(checker, checker);
-        MechaController controller = new MechaController();
+        SawProtocol protocol =  new SawProtocol(checker, checker);
+        SawController controller = new SawController();
         service.setProtocol(protocol);
         service.addController(controller);
 
